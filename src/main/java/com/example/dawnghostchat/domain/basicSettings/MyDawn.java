@@ -1,4 +1,4 @@
-package com.example.dawnghostchat.domain;
+package com.example.dawnghostchat.domain.basicSettings;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Getter @Setter
 @ToString
 public class MyDawn {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     private String id;
     private String name;
 
