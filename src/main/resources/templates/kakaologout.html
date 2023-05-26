@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/auth/logout}" method="post" id="logoutForm">
+  <button type="submit">Logout</button>
+</form>
+</body>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#logoutForm').submit();
+  });
+</script>
+</html>

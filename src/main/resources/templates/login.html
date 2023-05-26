@@ -29,9 +29,7 @@
 </div>
 
 <div sec:authorize="isAuthenticated()" style="background-color:pink; padding:1em;">
-  <form th:action="@{/logout}" method="post">
-  <button id="logout">로그아웃</button>
-  </form>
+  <a href="#" id = "logout">로그아웃</a>
 </div>
 
 <br><br>
@@ -46,4 +44,10 @@
 
 </body>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+  $("#logout").on("click",function(){
+    url = "https://kauth.kakao.com/oauth/logout?client_id=f5ac3ad838bfbd7ca1a1022ad10fe4ee&logout_redirect_uri=http://localhost:10601/oauth/logout";
+    location.href= url;
+  })
+</script>
 </html>

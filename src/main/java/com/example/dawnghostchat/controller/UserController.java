@@ -5,6 +5,7 @@ import com.example.dawnghostchat.auth.PrincipalDetails;
 import com.example.dawnghostchat.domain.user.Role;
 import com.example.dawnghostchat.domain.user.User;
 import com.example.dawnghostchat.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -12,6 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -19,11 +21,12 @@ import java.util.Enumeration;
 import java.util.Map;
 
 @Controller
+@RequiredArgsConstructor
 public class UserController {
-    @Autowired private UserRepository userRepository;
-    @Autowired private BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final UserRepository userRepository;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @Autowired private KakaoAPI kakaoAPI;
+    private final KakaoAPI kakaoAPI;
 
     @GetMapping("/loginForm")
     public String loginForm(){
@@ -126,5 +129,11 @@ public class UserController {
         }
         return "test";
     }
+
+    @GetMapping("/oauth/logout")
+    public String oauthLogout(){
+        return "kakaologout";
+    }
+
 
 }

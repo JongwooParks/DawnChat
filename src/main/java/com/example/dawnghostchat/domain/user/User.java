@@ -1,8 +1,10 @@
 package com.example.dawnghostchat.domain.user;
 
+import com.example.dawnghostchat.domain.dto.UserDTO;
 import com.example.dawnghostchat.domain.user.Role;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.modelmapper.ModelMapper;
 
 import javax.persistence.*;
 import java.security.Timestamp;
@@ -12,7 +14,7 @@ import java.time.LocalDateTime;
 @Table(name="DAWN_USER")
 @Getter
 @ToString
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor()
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -53,4 +55,5 @@ public class User {
         this.provider = provider;
         this.providerId = providerId;
     }
+
 }
