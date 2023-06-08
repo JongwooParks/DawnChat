@@ -37,7 +37,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
         }
 
         String providerId = oAuth2UserInfo.getProviderId();
-        String username = provider+"_"+providerId;
+        String username = oAuth2UserInfo.getName();
 
         String uuid = UUID.randomUUID().toString().substring(0, 6);
         String password = bCryptPasswordEncoder.encode("패스워드"+uuid);
