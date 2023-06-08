@@ -27,6 +27,8 @@ public class User {
 
     private String email;
 
+    private String profile;
+
     @Enumerated(EnumType.STRING)
     @Setter
     private Role role;
@@ -39,21 +41,23 @@ public class User {
 
 
     @Builder(builderClassName = "UserDetailRegister", builderMethodName = "userDetailRegister")
-    public User(String username, String password, String email, Role role) {
+    public User(String username, String password, String email, Role role, String profile) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.role = role;
+        this.profile = profile;
     }
 
     @Builder(builderClassName = "OAuth2Register", builderMethodName = "oauth2Register")
-    public User(String username, String password, String email, Role role, String provider, String providerId) {
+    public User(String username, String password, String email, Role role, String provider, String providerId, String profile) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.role = role;
         this.provider = provider;
         this.providerId = providerId;
+        this.profile = profile;
     }
 
 }

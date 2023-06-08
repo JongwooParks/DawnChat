@@ -46,12 +46,13 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
         Role role = Role.USER;
 
         User byUsername = userRepository.findByUsername(username);
+        String profileImage = oAuth2UserInfo.getProfile();
 
         //DB에 없는 사용자라면 회원가입처리
         if(byUsername == null){
             byUsername = User.oauth2Register()
                     .username(username).password(password).email(email).role(role)
-                    .provider(provider).providerId(providerId)
+                    .provider(provider).providerId(providerId).profile(profileImage)
                     .build();
             userRepository.save(byUsername);
         }

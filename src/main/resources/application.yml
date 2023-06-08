@@ -19,7 +19,7 @@ spring:
           kakao:
             client-id: f5ac3ad838bfbd7ca1a1022ad10fe4ee
             client-secret: zrv06WuszXIy3zVtbJj7nKodcUJx5mio
-            scope: profile_nickname, account_email
+            scope: profile_nickname, account_email, profile_image
             client-name: Kakao
             authorization-grant-type: authorization_code
             redirect-uri: http://localhost:10601/login/oauth2/code/kakao

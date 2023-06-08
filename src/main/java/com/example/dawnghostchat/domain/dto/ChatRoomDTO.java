@@ -7,6 +7,7 @@ import lombok.ToString;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.WebSocketSession;
 
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -21,6 +22,7 @@ public class ChatRoomDTO {
     private String name;
     private Set<WebSocketSession> sessions = new HashSet<>();
     //WebSocketSession은 Spring에서 Websocket Connection이 맺어진 세션
+    private LocalDateTime createdTime;
 
     public void addSession(WebSocketSession session) {
         sessions.add(session);
@@ -31,6 +33,7 @@ public class ChatRoomDTO {
 
         room.roomId = UUID.randomUUID().toString();
         room.name = name;
+        room.createdTime = LocalDateTime.now();
         return room;
     }
 }

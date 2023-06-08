@@ -9,14 +9,16 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name="CHAT_ROOM")
+@Table(name="CHAT_MESSAGE")
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
-public class ChatRoom {
+public class ChatMessage {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long roomId;
-    private String name;
-    private LocalDateTime createdTime;
+
+    private String writer;
+    private String message;
+    private LocalDateTime time;
 }

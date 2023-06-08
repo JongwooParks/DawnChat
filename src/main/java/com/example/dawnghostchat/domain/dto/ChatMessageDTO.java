@@ -6,6 +6,8 @@ import lombok.Setter;
 import lombok.ToString;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Component
 @Getter
 @Setter
@@ -15,4 +17,6 @@ public class ChatMessageDTO {
     private String roomId;
     private String writer;
     private String message;
+
+    private LocalDateTime time;
 }
